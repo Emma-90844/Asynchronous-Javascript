@@ -23,7 +23,7 @@ function displayCommits(commits){
 }
 
 //Callbacks
-//Promisses
+//Promisses 
 //Aync and await
 
 
@@ -34,6 +34,10 @@ function displayCommits(commits){
 // const commit = getCommits(repos[0]);
 // console.log('After');
 
+//PROMISSES
+//A promise holds ther results of asynchronous operation
+//Promisses to give the result
+//It can be in a pending state----->async operation
 
 function getUser(id, callback){
     setTimeout(() => {          
