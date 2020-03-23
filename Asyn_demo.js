@@ -39,25 +39,37 @@ function displayCommits(commits){
 //Promisses to give the result
 //It can be in a pending state----->async operation
 
-function getUser(id, callback){
-    setTimeout(() => {          
-        console.log('Reading a user from the data base');
-        callback({id: id, gitHubUsername: 'mosh'}) ;
-    }, 2000);
+function getUser(id){
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {          
+            console.log('Reading a user from the data base');
+            resolve({id: id, gitHubUsername: 'mosh'}) ;
+        }, 2000);
+    });
+    
 }
 
 //Async function to rerturn the list of repositories.
-function getRepositories(username, callback) {
-    setTimeout(() => {
-        console.log('Calling gitHub API....');
-        callback( ['repo1', 'repo2', 'repo3']);
-    }, 2000);
-   
+function getRepositories(username) {
+    return new Promise ((resolvge, reject) => {
+        setTimeout(() => {
+            console.log('Calling gitHub API....');
+            resolve( ['repo1', 'repo2', 'repo3']);
+        }, 2000);
+    });  
 }
 
 
 
-
+function getCommits(repo){
+   return new Promise ((resolve, reject) => {
+    setTimeout(() => {
+        console.log('Calling GitHub API ....');
+        resolve('[commit]');
+    }, 2000);
+   });
+   
+}
 
 
 
