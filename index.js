@@ -8,8 +8,6 @@ console.log('After');
 //Promisses
 //Sync and await
 
-
-
 function getUser (id, callbacl){
     setTimeout(() => {
         console.log('Reading a user from the data base');
@@ -22,7 +20,7 @@ function getUser (id, callbacl){
 network access you are dealing with asynchronous programing
 
 A callback is a function that is called when the results of 
-asynchronious function is ready
+asynchronous function is ready
 */
 
 
