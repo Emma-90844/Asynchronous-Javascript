@@ -40,43 +40,58 @@ function displayCommits(commits){
 //It can be in a pending state----->async operation
 
 function getUser(id){
-    return new Promise((resolve,reject) => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {          
             console.log('Reading a user from the data base');
-            resolve({id: id, gitHubUsername: 'mosh'}) ;
+            resolve({id: 1, gitHubUsername: 'mosh'}) ;
         }, 2000);
     });
     
 }
 
 //Async function to rerturn the list of repositories.
-function getRepositories(username) {
-    return new Promise ((resolvge, reject) => {
-        setTimeout(() => {
-            console.log('Calling gitHub API....');
-            resolve( ['repo1', 'repo2', 'repo3']);
-        }, 2000);
-    });  
-}
+// function getRepositories(username) {
+//     return new Promise ((resolvge, reject) => {
+//         setTimeout(() => {
+//             console.log('Calling gitHub API....');
+//             resolve( ['repo1', 'repo2', 'repo3']);
+//         }, 2000);
+//     });  
+// }
 
 
 
-function getCommits(repo){
-   return new Promise ((resolve, reject) => {
-    setTimeout(() => {
-        console.log('Calling GitHub API ....');
-        resolve('[commit]');
-    }, 2000);
-   });
+// function getCommits(repo){
+//    return new Promise ((resolve, reject) => {
+//     setTimeout(() => {
+//         console.log('Calling GitHub API ....');
+//         resolve('[commit]');
+//     }, 2000);
+//    });
    
-}
+// }
 
 
+// //REWRITE THE CODE BELOW USING PROMISSES
+// getUser(1, (user) => {
+//     getRepositories(user.gitHubUsername, (repos) =>{
+//         getCommits(repos[0], (commits) => {
+//             console.log('commits');
+//         });
+//     });
+// });
+
+//ABOVE CODE USING PROMISSES
+// const p = getUser();
+// p.then(user => console.log(user));
+//Simplifying the above commented code 
+getUser(1)
+.then(user => getRepositories(user.gitHubUsername))
+.then(repos =>getCommits(repos[0]))
+.then(commits => console.log('Commits', commits))
+.catch(err => console.log('Error, err.message'));
 
 
-
-
-
-
-
+//Get a single user from the database usng async await 
+//async awat
 
